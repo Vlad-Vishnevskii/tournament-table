@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Таблица треннировок ФК Зелёная околица</title>
+</head>
+
+<body>
+    <header>        
+        <div>
+            <img src="./image/logo.jpg" alt="ФК Зелёная околица" width="200" height="200">
+        </div>
+        <h1>Таблица треннировок ФК Зелёная околица</h1>
+    </header>
+    <main>
+        <h2>Ввод результатов матча</h2>
+        <form class="tournament-form" action="https://echo.htmlacademy.ru">
+            <input class="tournament-form__home-team-name" type="text" value="">
+            <input type="number" class="tournament-form__home-score" name="gol_home" value="0">
+            :
+            <input type="number" class="tournament-form__visitor-score" name="gol_visitor" value="0">
+            <input type="text" class="tournament-form__visitor-team-name" value="">
+            <button type="submit" class="tournament-form__button-add-result">Добавить результат в таблицу</button>
+        </form>
+
+        <h2>Итоговая таблица дня</h2>
+        <table class="tournament-table">
+            <tr class="tournament-table__title-string">
+                <th class="tournament-table__title-cell">Место</th>
+                <th class="tournament-table__title-cell">Команда</th>
+                <th class="tournament-table__title-cell">Очки</th>
+                <th class="tournament-table__title-cell">Игры</th>
+                <th class="tournament-table__title-cell">Победы</th>
+                <th class="tournament-table__title-cell">Поражения</th>
+            </tr>
+            <tr class="tournament-table__string" id="first" data-team="Команда Бессметроного">
+                <td class="tournament-table__cell tournament-table__cell_place">1</td>
+                <td class="tournament-table__cell tournament-table__cell_name">Команда Бессметроного</td>
+                <td class="tournament-table__cell tournament-table__cell_points">0</td>
+                <td class="tournament-table__cell tournament-table__cell_matches">0</td>
+                <td class="tournament-table__cell tournament-table__cell_wins">1</td>
+                <td class="tournament-table__cell tournament-table__cell_loss">0</td>
+            </tr>
+            <tr class="tournament-table__string" id="second" data-team="Команда Абашина">
+                <td class="tournament-table__cell tournament-table__cell_place">2</td>
+                <td class="tournament-table__cell tournament-table__cell_name">Команда Абашина</td>
+                <td class="tournament-table__cell tournament-table__cell_points">0</td>
+                <td class="tournament-table__cell tournament-table__cell_matches">0</td>
+                <td class="tournament-table__cell tournament-table__cell_wins">1</td>
+                <td class="tournament-table__cell tournament-table__cell_loss">0</td>
+            </tr>
+            <tr class="tournament-table__string" id="third" data-team="Команда Алексеенко">
+                <td class="tournament-table__cell tournament-table__cell_place">3</td>
+                <td class="tournament-table__cell tournament-table__cell_name">Команда Алексеенко</td>
+                <td class="tournament-table__cell tournament-table__cell_points">0</td>
+                <td class="tournament-table__cell tournament-table__cell_matches">0</td>
+                <td class="tournament-table__cell tournament-table__cell_wins">1</td>
+                <td class="tournament-table__cell tournament-table__cell_loss">0</td>
+            </tr>
+        </table>
+    </main>
+
+    <script src="./js/form.js"></script>
+
+</body>
+
+</html>
