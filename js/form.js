@@ -11,12 +11,18 @@ let visitorTeamPoints = 0;
 let homeTeam = {};
 let visitorTeam = {};
 let gameToPlay = 0;
+let win = 0;
+let loss = 0;
+let draw = 0;
 
 const createObjTeamHome = function () {
    const objHome = {
        name: homeTeamName.value,
        points: homeTeamPoints,
-       games: gameToPlay
+       games: gameToPlay,
+       wins: win,
+       loss: loss,
+       draw: draw
    }
    return objHome; 
 }
@@ -25,7 +31,10 @@ const createObjTeamVisitor = function () {
     const objVisitor = {
         name: visitorTeamName.value,
         points: visitorTeamPoints,
-        games: gameToPlay
+        games: gameToPlay,
+        wins: win,
+        loss: loss,
+        draw: draw
     }
     return objVisitor;
  }
@@ -38,16 +47,20 @@ const textContentCounter = function (element, indexTable) {
 }
 
 const fillTable = function (team) {    
-    const string = document.querySelector(`[data-team="${team.name}"]`);
-    console.log(string);    
+    const string = document.querySelector(`[data-team="${team.name}"]`);       
     const name = string.querySelector(`.tournament-table__cell_name`);
-    const points = string.querySelector(`.tournament-table__cell_points`); 
-    const matches = string.querySelector(`.tournament-table__cell_matches`);  
+    const pointsInTable = string.querySelector(`.tournament-table__cell_points`); 
+    const matchesInTable = string.querySelector(`.tournament-table__cell_matches`);
+    const winInTable = string.querySelector(`.tournament-table__cell_wins`);    
+    const losInTable = string.querySelector(`.tournament-table__cell_loss`);
+    const drawsInTable = string.querySelector(`.tournament-table__cell_draws`);
     name.textContent = team.name;
-    textContentCounter(points, team.points);
-    textContentCounter(matches, team.games);
+    textContentCounter(pointsInTable, team.points);
+    textContentCounter(matchesInTable, team.games);
+    textContentCounter(winInTable, team.wins);
+    textContentCounter(losInTable, team.loss);
+    textContentCounter(drawsInTable, team.draw);    
 }
-
 
 const onTournamentFormSubmit = function (evt) {    
     homeTeam = {};
@@ -64,13 +77,19 @@ const pointsCounter = function () {
     if (homeScore.value > visitorScore.value) {
         console.log(`первые победили`)
         homeTeam.points += 3;
+        homeTeam.wins += 1;
+        visitorTeam.loss += 1;
     } else if (homeScore.value < visitorScore.value) {
         console.log(`вторые победили`)
-        visitorTeam.points += 3;       
+        visitorTeam.points += 3;
+        visitorTeam.wins += 1;
+        homeTeam.loss += 1;       
     } else {
         console.log(`ничья`)
         homeTeam.points = 1;
-        visitorTeam.points +=1
+        visitorTeam.points +=1;
+        homeTeam.draw += 1;
+        visitorTeam.draw += 1;
     }        
     fillTable(homeTeam);
     fillTable(visitorTeam);
