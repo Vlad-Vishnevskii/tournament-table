@@ -17,7 +17,7 @@
 
 .header__title {
     margin: 0;
-    font-size: 24px;    
+    font-size: 26px;    
 }
 
 .tournament {
@@ -26,15 +26,33 @@
     justify-content: center;
 }
 
+.tournament__title {
+    font-size: 20px;
+}
+
 .tournament-form__input {
-    width: 20px;
-    height: 20px;
+    width: 44px;
+    height: 33px;
     padding: 5px;
+    background-color: #a5a09c;
+    border-color: #a5a09c;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 5px;    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    background-image: url("../image/ball.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 22px;
 }
 
 .tournament__separator {
-    padding: 10px 0;    
-    font-weight: bold;
+    padding: 10px 0;
+    font-weight: bold;    
 }
 
 .tournament__form {
@@ -47,14 +65,57 @@
 .tournament-form__team-name {
     height: 33px;
     padding: 5px;
+    background-color: #a5a09c;
+    border-color:  #a5a09c;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 5px;
 }
 
 .tournament-form__button-add-result {
     margin: 20px;
+    margin-bottom: 0;
     width: 100%;
-    height: 33px;
-    background-color: white;
-    border: 3px solid black;
+    height: 60px;    
+    background-color: rgb(230, 59, 68);
+    border: 3px solid rgb(230, 59, 68);
+    box-shadow: 0 0 9px rgba(0,0,0,0.7);
     border-radius: 10px;
-    font-weight: bold;
+    font-weight: bold;    
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: white;
+}
+
+.tournament-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tournament-wrapper__title {
+    font-size: 20px;    
+}
+
+.tournament-table {
+    background-color: rgba(51, 153, 51, 0.5);
+    color: black;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    font-size: 20px;       
+}
+
+.tournament-table__string:nth-child(3) {
+    background-color: white;
+}
+
+.tournament-table__title-cell {    
+    background-color: rgba(51, 153, 51, 1);
+    color: white;
+}
+
+.tournament-table__cell {   
+    text-align: center;
+    padding: 5px;    
 }

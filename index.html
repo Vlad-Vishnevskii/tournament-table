@@ -23,34 +23,56 @@
             <h2 class="tournament__title">Ввод результатов матча</h2>
             <form class="tournament__form" action="https://echo.htmlacademy.ru">
                 <div>            
-                <select class="tournament-form__team-name tournament-form__team-name_home">
-                    <option disabled selected>Выберите команду</option>
-                    <option>Команда Бессметроного</option>
-                    <option>Команда Абашина</option>
-                    <option>Команда Алексеенко</option>
-                </select>
-                <input type="number" class="tournament-form__input tournament-form__input_home-score" name="gol_home" value="0">
+                    <select class="tournament-form__team-name_home tournament-form__team-name">
+                        <option disabled selected>Выберите команду</option>
+                        <option>Команда Бессметроного</option>
+                        <option>Команда Абашина</option>
+                        <option>Команда Алексеенко</option>
+                    </select>
+                    <select class="tournament-form__input tournament-form__input_home-score" name="gol_home" value="0">
+                        <option selected>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option> 
+                    </select>
                 </div>
                 <br>
                 <div class="tournament__separator">Против</div>
                 <div>                
-                <select class="tournament-form__team-name tournament-form__team-name_visitor">
-                    <option disabled selected>Выберите команду</option>
-                    <option>Команда Бессметроного</option>
-                    <option>Команда Абашина</option>
-                    <option>Команда Алексеенко</option>
-                </select>
-                <input type="number" class="tournament-form__input tournament-form__input_visitor-score" name="gol_visitor" value="0">
+                    <select class="tournament-form__team-name tournament-form__team-name_visitor">
+                        <option disabled selected>Выберите команду</option>
+                        <option>Команда Бессметроного</option>
+                        <option>Команда Абашина</option>
+                        <option>Команда Алексеенко</option>
+                    </select>
+                    <select type="tel"  class="tournament-form__input tournament-form__input_visitor-score" name="gol_visitor" value="0">
+                        <option selected>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
                 </div>            
-                <button type="submit" class="tournament-form__button-add-result">Добавить результат в таблицу</button>
+                <button type="submit" class="tournament-form__button-add-result">Добавить результат</button>
             </form>
         </section>
 
-        <section class="container">
-            <h2>Итоговая таблица дня</h2>
+        <section class="container tournament-wrapper">
+            <h2 class="tournament-wrapper__title">Итоговая таблица дня</h2>
             <table class="tournament-table">
                 <tr class="tournament-table__title-string">
-                    <th class="tournament-table__title-cell">Место</th>
+                    <th class="tournament-table__title-cell">М</th>
                     <th class="tournament-table__title-cell">Команда</th>
                     <th class="tournament-table__title-cell">О</th>
                     <th class="tournament-table__title-cell">И</th>

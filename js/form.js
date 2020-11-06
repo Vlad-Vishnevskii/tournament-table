@@ -1,11 +1,11 @@
 'use strict';
 
 (function () {
-const tournamentForm = document.querySelector(`.tournament-form`);
-const homeTeamName = tournamentForm.querySelector(`.tournament-form__home-team-name`);
-const visitorTeamName = tournamentForm.querySelector(`.tournament-form__visitor-team-name`);
-const homeScore = tournamentForm.querySelector(`.tournament-form__home-score`);
-const visitorScore = tournamentForm.querySelector(`.tournament-form__visitor-score`);
+const tournamentForm = document.querySelector(`.tournament__form`);
+const homeTeamName = document.querySelector(`.tournament-form__team-name_home`);
+const visitorTeamName = document.querySelector(`.tournament-form__team-name_visitor`);
+const homeScore = tournamentForm.querySelector(`.tournament-form__input_home-score`);
+const visitorScore = tournamentForm.querySelector(`.tournament-form__input_visitor-score`);
 let homeTeamPoints = 0;
 let visitorTeamPoints = 0;
 let homeTeam = {};
@@ -66,9 +66,19 @@ const fillTable = function (team) {
 const sortTable = function () {
     console.log(table.rows)
     let sortedRows = Array.from(table.rows)
-      .slice(1)
-      .sort((rowA, rowB) => rowA.cells[2].innerHTML < rowB.cells[2].innerHTML ? 1 : -1)    
-
+      .slice(1)    
+    sortedRows.sort(function(rowA, rowB) {
+        let a = parseInt(rowA.cells[2].innerHTML);
+        let b = parseInt(rowB.cells[2].innerHTML);
+        if (a > b) {
+            return -1;
+        }
+        if (a < b) {
+            return 1;            
+        }
+        return 0; 
+    });        
+    
     table.tBodies[0].append(...sortedRows);    
 }
 
