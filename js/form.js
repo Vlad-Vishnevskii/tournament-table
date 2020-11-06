@@ -14,6 +14,7 @@ let gameToPlay = 0;
 let win = 0;
 let loss = 0;
 let draw = 0;
+const table = document.querySelector(`.tournament-table`);
 
 const createObjTeamHome = function () {
    const objHome = {
@@ -62,11 +63,13 @@ const fillTable = function (team) {
     textContentCounter(drawsInTable, team.draw);    
 }
 
-const onTournamentFormSubmit = function (evt) {    
-    homeTeam = {};
-    visitorTeam = {};
-    evt.preventDefault()
-    pointsCounter();    
+const sortTable = function () {
+    console.log(table.rows)
+    let sortedRows = Array.from(table.rows)
+      .slice(1)
+      .sort((rowA, rowB) => rowA.cells[2].innerHTML < rowB.cells[2].innerHTML ? 1 : -1)    
+
+    table.tBodies[0].append(...sortedRows);    
 }
 
 const pointsCounter = function () {
@@ -93,6 +96,27 @@ const pointsCounter = function () {
     }        
     fillTable(homeTeam);
     fillTable(visitorTeam);
+}
+
+const placeChecker = function () {
+    const tableRows = Array.from(table.rows)
+    .slice(1);   
+    console.log(tableRows);    
+    let index = 1;
+    for (let row of tableRows) {
+        const place = row.querySelector(`.tournament-table__cell_place`);
+        place.textContent = index;
+        index++ 
+   }            
+}
+
+const onTournamentFormSubmit = function (evt) {    
+    homeTeam = {};
+    visitorTeam = {};
+    evt.preventDefault()
+    pointsCounter();
+    sortTable();
+    placeChecker();
 }
 
 tournamentForm.addEventListener(`submit`, onTournamentFormSubmit);
