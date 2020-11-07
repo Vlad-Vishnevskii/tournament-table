@@ -31,7 +31,7 @@
 }
 
 .tournament-form__input {
-    width: 44px;
+    width: 37px;
     height: 33px;
     padding: 5px;
     background-color: #a5a09c;
@@ -59,12 +59,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 280px;
+    max-width: 280px;
 }
 
 .tournament-form__team-name {
     height: 33px;
-    padding: 5px;
+    padding: 4px;
     background-color: #a5a09c;
     border-color:  #a5a09c;
     font-weight: bold;
