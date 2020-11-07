@@ -47,7 +47,14 @@
     background-image: url("../image/ball.svg");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 22px;
+    background-size: 22px;    
+}
+
+.tournament-form__input:hover,
+.tournament-form__input:active,
+.tournament-form__input:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .tournament__separator {
@@ -72,6 +79,13 @@
     border-radius: 5px;
 }
 
+.tournament-form__team-name:hover,
+.tournament-form__team-name:active,
+.tournament-form__team-name:focus {
+    outline: none;   
+    box-shadow: none;
+}
+
 .tournament-form__button-add-result {
     margin: 20px;
     margin-bottom: 0;
@@ -85,6 +99,13 @@
     box-sizing: border-box;
     text-transform: uppercase;
     color: white;
+}
+
+.tournament-form__button-add-result:hover,
+.tournament-form__button-add-result:active,
+.tournament-form__button-add-result:focus {
+    outline: none;   
+    box-shadow: none;    
 }
 
 .tournament-wrapper {
