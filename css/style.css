@@ -31,7 +31,7 @@
 }
 
 .tournament-form__input {
-    width: 37px;
+    width: 41px;
     height: 33px;
     padding: 5px;
     background-color: #a5a09c;
@@ -63,8 +63,7 @@
 }
 
 .tournament-form__team-name {
-    height: 33px;
-    padding: 4px;
+    height: 33px;    
     background-color: #a5a09c;
     border-color:  #a5a09c;
     font-weight: bold;
@@ -91,7 +90,7 @@
 .tournament-wrapper {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
 }
 
 .tournament-wrapper__title {
@@ -103,7 +102,8 @@
     color: black;
     margin-bottom: 30px;
     border-collapse: collapse;
-    font-size: 20px;       
+    font-size: 20px;
+    width: 100%;       
 }
 
 .tournament-table__string:nth-child(3) {
@@ -117,5 +117,5 @@
 
 .tournament-table__cell {   
     text-align: center;
-    padding: 5px;    
+    padding: 10px;    
 }
