@@ -147,7 +147,7 @@
 }
 
 .tournament-table__title-cell:last-child {
-    padding-right: 8px;
+    padding-right: 5px;
 }
 
 @media (min-width: 450px) {
