@@ -6,6 +6,7 @@ const homeTeamName = document.querySelector(`.tournament-form__team-name_home`);
 const visitorTeamName = document.querySelector(`.tournament-form__team-name_visitor`);
 const homeScore = tournamentForm.querySelector(`.tournament-form__input_home-score`);
 const visitorScore = tournamentForm.querySelector(`.tournament-form__input_visitor-score`);
+const buttonResult = tournamentForm.querySelector(`.tournament-form__button-add-result`);
 let homeTeamPoints = 0;
 let visitorTeamPoints = 0;
 let homeTeam = {};
@@ -14,6 +15,9 @@ let gameToPlay = 0;
 let win = 0;
 let loss = 0;
 let draw = 0;
+let scored = 0;
+let conceded = 0;
+let difference = 0;
 const table = document.querySelector(`.tournament-table`);
 
 const createObjTeamHome = function () {
@@ -23,7 +27,10 @@ const createObjTeamHome = function () {
        games: gameToPlay,
        wins: win,
        loss: loss,
-       draw: draw
+       draw: draw,
+       scored: scored,
+       conceded: conceded,
+       difference: difference
    }
    return objHome; 
 }
@@ -35,7 +42,10 @@ const createObjTeamVisitor = function () {
         games: gameToPlay,
         wins: win,
         loss: loss,
-        draw: draw
+        draw: draw,
+        scored: scored,
+        conceded: conceded,
+        difference: difference
     }
     return objVisitor;
  }
@@ -55,27 +65,42 @@ const fillTable = function (team) {
     const winInTable = string.querySelector(`.tournament-table__cell_wins`);    
     const losInTable = string.querySelector(`.tournament-table__cell_loss`);
     const drawsInTable = string.querySelector(`.tournament-table__cell_draws`);
+    const golScore = string.querySelector(`.tournament-table__cell_scored`);
+    const golConceded = string.querySelector(`.tournament-table__cell_conceded`);
+    const golDifference = string.querySelector(`.tournament-table__cell_difference`);
+    const delta =  Number(golDifference.textContent);
+
     name.textContent = team.name;
     textContentCounter(pointsInTable, team.points);
     textContentCounter(matchesInTable, team.games);
     textContentCounter(winInTable, team.wins);
     textContentCounter(losInTable, team.loss);
-    textContentCounter(drawsInTable, team.draw);    
+    textContentCounter(drawsInTable, team.draw);
+    textContentCounter(golScore, team.scored);
+    textContentCounter(golConceded, team.conceded);    
+    const DeltaSum = delta + (team.scored - team.conceded);
+    golDifference.textContent = DeltaSum;           
 }
 
-const sortTable = function () {
-    console.log(table.rows)
+const sortTable = function () {    
     let sortedRows = Array.from(table.rows)
       .slice(1)    
     sortedRows.sort(function(rowA, rowB) {
         let a = parseInt(rowA.cells[2].innerHTML);
         let b = parseInt(rowB.cells[2].innerHTML);
+
+        if (a === b) {
+            a = parseInt(rowA.cells[9].innerHTML);
+            b = parseInt(rowB.cells[9].innerHTML);
+        } 
+
         if (a > b) {
             return -1;
         }
         if (a < b) {
             return 1;            
         }
+        
         return 0; 
     });        
     
@@ -86,19 +111,21 @@ const pointsCounter = function () {
     homeTeam = createObjTeamHome();
     visitorTeam = createObjTeamVisitor();
     homeTeam.games += 1;
+    homeTeam.scored += Number(homeScore.value);
+    homeTeam.conceded += Number(visitorScore.value);
     visitorTeam.games += 1;
-    if (homeScore.value > visitorScore.value) {
-        console.log(`первые победили`)
+    visitorTeam.scored += Number(visitorScore.value);
+    visitorTeam.conceded += Number(homeScore.value);
+
+    if (homeScore.value > visitorScore.value) {        
         homeTeam.points += 3;
         homeTeam.wins += 1;
-        visitorTeam.loss += 1;
-    } else if (homeScore.value < visitorScore.value) {
-        console.log(`вторые победили`)
+        visitorTeam.loss += 1;        
+    } else if (homeScore.value < visitorScore.value) {        
         visitorTeam.points += 3;
         visitorTeam.wins += 1;
         homeTeam.loss += 1;       
-    } else {
-        console.log(`ничья`)
+    } else {        
         homeTeam.points = 1;
         visitorTeam.points +=1;
         homeTeam.draw += 1;
@@ -110,8 +137,7 @@ const pointsCounter = function () {
 
 const placeChecker = function () {
     const tableRows = Array.from(table.rows)
-    .slice(1);   
-    console.log(tableRows);    
+    .slice(1);        
     let index = 1;
     for (let row of tableRows) {
         const place = row.querySelector(`.tournament-table__cell_place`);
@@ -120,7 +146,16 @@ const placeChecker = function () {
    }            
 }
 
-const onTournamentFormSubmit = function (evt) {    
+const validation = function () {
+    if (homeTeamName.value === visitorTeamName.value) {
+        buttonResult.disabled = true;        
+    }
+    else {
+        buttonResult.disabled = false; 
+    }
+}
+
+const onTournamentFormSubmit = function (evt) {        
     homeTeam = {};
     visitorTeam = {};
     evt.preventDefault()
@@ -129,5 +164,7 @@ const onTournamentFormSubmit = function (evt) {
     placeChecker();
 }
 
+homeTeamName.addEventListener(`input`, validation);
+visitorTeamName.addEventListener(`input`, validation);
 tournamentForm.addEventListener(`submit`, onTournamentFormSubmit);
 })();
