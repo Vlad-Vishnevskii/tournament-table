@@ -162,6 +162,7 @@ const onTournamentFormSubmit = function (evt) {
     pointsCounter();
     sortTable();
     placeChecker();
+    tournamentForm.reset();
 }
 
 homeTeamName.addEventListener(`input`, validation);
