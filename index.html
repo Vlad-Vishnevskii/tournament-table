@@ -22,34 +22,36 @@
         <section class="tournament container">
             <h2 class="tournament__title">Ввод результатов матча</h2>
             <form class="tournament__form" action="https://echo.htmlacademy.ru">
-                <div class="tournament__home-team-score">        
-                    <select class="tournament-form__team-name_home tournament-form__team-name">
-                        <option disabled selected>Выберите команду</option>
-                        <option>Команда Бессмертного</option>
-                        <option>Команда Абашина</option>
-                        <option>Команда Алексеенко</option>
-                    </select>
-                    <select class="tournament-form__input tournament-form__input_home-score" name="gol_home" value="0">
-                        <option selected>0</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option> 
-                    </select>
+                <div class="tournament__home-team-score">
+                    <div>        
+                        <select class="tournament-form__team-name_home tournament-form__team-name">
+                            <option disabled selected>Выберите команду</option>
+                            <option>Лимоны</option>
+                            <option>Апельсины</option>
+                            <option>Баклажаны</option>
+                        </select>
+                        <select class="tournament-form__input tournament-form__input_home-score" name="gol_home" value="0">
+                            <option selected>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option> 
+                        </select>
+                    </div>
                 </div>
-                <br>
+                <!-- <br> -->
                 <div class="tournament__separator">Против</div>
                 <div>                
                     <select class="tournament-form__team-name tournament-form__team-name_visitor">
                         <option disabled selected>Выберите команду</option>
-                        <option>Команда Бессмертного</option>
-                        <option>Команда Абашина</option>
-                        <option>Команда Алексеенко</option>
+                        <option>Лимоны</option>
+                        <option>Апельсины</option>
+                        <option>Баклажаны</option>
                     </select>
                     <select type="tel"  class="tournament-form__input tournament-form__input_visitor-score" name="gol_visitor" value="0">
                         <option selected>0</option>
@@ -83,9 +85,9 @@
                     <th class="tournament-table__title-cell tournament-table__cell_conceded">ГП</th>
                     <th class="tournament-table__title-cell tournament-table__cell_difference">РГ</th>
                 </tr>
-                <tr class="tournament-table__string" id="first" data-team="Команда Бессмертного">
+                <tr class="tournament-table__string" id="first" data-team="Лимоны">
                     <td class="tournament-table__cell tournament-table__cell_place">1</td>
-                    <td class="tournament-table__cell tournament-table__cell_name">Команда Бессмертного</td>
+                    <td class="tournament-table__cell tournament-table__cell_name">Лимоны</td>
                     <td class="tournament-table__cell tournament-table__cell_points">0</td>
                     <td class="tournament-table__cell tournament-table__cell_matches">0</td>
                     <td class="tournament-table__cell tournament-table__cell_wins">0</td>
@@ -95,9 +97,9 @@
                     <td class="tournament-table__cell tournament-table__cell_conceded">0</td>
                     <td class="tournament-table__cell tournament-table__cell_difference">0</td>
                 </tr>
-                <tr class="tournament-table__string" id="second" data-team="Команда Абашина">
+                <tr class="tournament-table__string" id="second" data-team="Апельсины">
                     <td class="tournament-table__cell tournament-table__cell_place">2</td>
-                    <td class="tournament-table__cell tournament-table__cell_name">Команда Абашина</td>
+                    <td class="tournament-table__cell tournament-table__cell_name">Апельсины</td>
                     <td class="tournament-table__cell tournament-table__cell_points">0</td>
                     <td class="tournament-table__cell tournament-table__cell_matches">0</td>
                     <td class="tournament-table__cell tournament-table__cell_wins">0</td>
@@ -107,9 +109,9 @@
                     <td class="tournament-table__cell tournament-table__cell_conceded">0</td>
                     <td class="tournament-table__cell tournament-table__cell_difference">0</td>
                 </tr>
-                <tr class="tournament-table__string" id="third" data-team="Команда Алексеенко">
+                <tr class="tournament-table__string" id="third" data-team="Баклажаны">
                     <td class="tournament-table__cell tournament-table__cell_place">3</td>
-                    <td class="tournament-table__cell tournament-table__cell_name">Команда Алексеенко</td>
+                    <td class="tournament-table__cell tournament-table__cell_name">Баклажаны</td>
                     <td class="tournament-table__cell tournament-table__cell_points">0</td>
                     <td class="tournament-table__cell tournament-table__cell_matches">0</td>
                     <td class="tournament-table__cell tournament-table__cell_wins">0</td>

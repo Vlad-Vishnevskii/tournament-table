@@ -92,7 +92,12 @@ const sortTable = function () {
         if (a === b) {
             a = parseInt(rowA.cells[9].innerHTML);
             b = parseInt(rowB.cells[9].innerHTML);
-        } 
+        }
+        
+        if (a === b) {
+            a = parseInt(rowA.cells[7].innerHTML);
+            b = parseInt(rowB.cells[7].innerHTML);
+        }
 
         if (a > b) {
             return -1;
