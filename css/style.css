@@ -177,15 +177,7 @@
 
     .tournament__form {
         max-width: 400px;                
-    }
-
-    .tournament__separator {
-        display: none;
-    }
-
-    .tournament-form__input {
-        margin-bottom: 20px;
-    }
+    }   
 
     .tournament-form__button-add-result { 
         width: 53%;
