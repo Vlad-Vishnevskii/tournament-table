@@ -19,6 +19,10 @@ let scored = 0;
 let conceded = 0;
 let difference = 0;
 const table = document.querySelector(`.tournament-table`);
+const gameTemplate = document.querySelector(`#results`)
+  .content
+  .querySelector(`.game-result`);
+const gameContainer = document.querySelector(`.games`);
 
 const createObjTeamHome = function () {
    const objHome = {
@@ -112,6 +116,19 @@ const sortTable = function () {
     table.tBodies[0].append(...sortedRows);    
 }
 
+const fillGameResult = function (home, visitor) {
+    const gameElement = gameTemplate.cloneNode(true);
+    gameElement.querySelector(`.game-result__home`).textContent = home.name;
+    gameElement.querySelector(`.game-result__home-goal`).textContent = Number(homeScore.value);
+    gameElement.querySelector(`.game-result__visitors-goal`).textContent = Number(visitorScore.value);
+    gameElement.querySelector(`.game-result__visitors`).textContent = visitor.name;
+
+    const fragment = document.createDocumentFragment();
+
+    fragment.appendChild(gameElement);
+    gameContainer.appendChild(fragment);
+}
+
 const pointsCounter = function () {
     homeTeam = createObjTeamHome();
     visitorTeam = createObjTeamVisitor();
@@ -138,6 +155,7 @@ const pointsCounter = function () {
     }        
     fillTable(homeTeam);
     fillTable(visitorTeam);
+    fillGameResult(homeTeam, visitorTeam);
 }
 
 const placeChecker = function () {

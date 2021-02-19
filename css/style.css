@@ -153,10 +153,6 @@
     padding-left: 8px;
 }
 
-/* .tournament-table__title-cell:last-child {
-    padding-right: 5px;
-} */
-
 .tournament-table__cell_scored {
     display: none;
 }
@@ -167,6 +163,31 @@
 
 .tournament-table__cell_difference {
     display: none;
+}
+
+.games {
+    padding-bottom: 50px;
+}
+
+.game-result {
+    display: flex;
+    width: 100%;    
+    font-size: 20px;     
+}
+
+.game-result__home {
+    width: 35%;
+    text-align: right;
+}
+
+.game-result__score {
+    width: 30%; 
+    text-align: center;       
+}
+
+.game-result__visitors {
+    width: 35%; 
+    text-align: left; 
 }
 
 @media (min-width: 450px) {
@@ -222,5 +243,15 @@
     
     .tournament-form__button-add-result { 
         width: 100%;
-    }    
+    }
+    
+    .game-result {
+        width: 50%;
+    }
+}
+
+@media (min-width: 900px) {
+    .game-result {
+        width: 35%;
+    } 
 }
