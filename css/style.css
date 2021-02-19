@@ -106,8 +106,6 @@
     border: #a5a09c;
 }
 
-
-
 .tournament-form__button-add-result:hover,
 .tournament-form__button-add-result:active,
 .tournament-form__button-add-result:focus {
@@ -172,7 +170,10 @@
 .game-result {
     display: flex;
     width: 100%;    
-    font-size: 20px;     
+    font-size: 20px;
+    border-bottom: 2px solid rgba(0,0,0,0.5);
+    padding-top: 5px;
+    padding-bottom: 5px;     
 }
 
 .game-result__home {
