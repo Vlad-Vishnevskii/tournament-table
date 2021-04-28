@@ -110,8 +110,7 @@ body {
 }
 
 .tournament-form__button-add-result:disabled {
-    background-color: #a5a09c;
-    border: #a5a09c;
+    opacity: 0.6;
 }
 
 .tournament-form__button-add-result:hover,
